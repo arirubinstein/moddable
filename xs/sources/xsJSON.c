@@ -110,6 +110,7 @@ void fxBuildJSON(txMachine* the)
 
 void fx_JSON_parse(txMachine* the)
 {
+	printf("fx_JSON_parse enter\n");
 	volatile txJSONParser* aParser = C_NULL;
 	mxTry(the) {
 		if (mxArgc < 1)
@@ -150,10 +151,13 @@ void fx_JSON_parse(txMachine* the)
 			c_free((txJSONParser*)aParser);
 		fxJump(the);
 	}
+	printf("fx_JSON_parse exit\n");
+
 }
 
 void fxParseJSON(txMachine* the, txJSONParser* theParser)
 {
+	printf("fxParseJSON enter\n");
 	mxPush(mxEmptyString);
 	theParser->string = the->stack;
 	theParser->line = 1;
